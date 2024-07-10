@@ -7,11 +7,48 @@
 
 import SwiftUI
 import RealityKit
+import Combine
+import ARKit
+import AVFoundation
 
 struct ContentView : View {
     var body: some View {
         ARViewContainer().edgesIgnoringSafeArea(.all)
     }
+}
+ 
+class Coordinator: NSObject, ARSessionDelegate {
+    
+    weak var arView: ARView?
+    weak var cancellable: AnyCancellable?
+    
+    func setupUI() {
+        
+        // Carregando o arView
+        
+        guard let arView = arView else {return}
+        
+        // Carregando o vídeo
+        
+        guard let video = Bundle.main.url(forResource: "horaVideo", withExtension: "mp4") else {fatalError("carai cade o video?")}
+        
+        let player = AVPlayer(url: video)
+        player.volume = 0.5
+        
+        let videoMaterial = VideoMaterial(avPlayer: player)
+        
+        let anchor = AnchorEntity(.image(group: "AR Resources", name: "reicopas"))
+        
+        let plane = ModelEntity(mesh: .generatePlane(width: 0.5, height: 0.5 ), materials: [videoMaterial])
+        
+        anchor.addChild(plane)
+        
+        arView.scene.addAnchor(anchor)
+            
+            player.play()
+        
+    }
+    
 }
 
 struct ARViewContainer: UIViewRepresentable {
@@ -20,24 +57,21 @@ struct ARViewContainer: UIViewRepresentable {
         
         let arView = ARView(frame: .zero)
 
-        // Create a cube model
-        let mesh = MeshResource.generateBox(size: 0.1, cornerRadius: 0.005)
-        let material = SimpleMaterial(color: .gray, roughness: 0.15, isMetallic: true)
-        let model = ModelEntity(mesh: mesh, materials: [material])
-        model.transform.translation.y = 0.05
-
-        // Create horizontal plane anchor for the content
-        let anchor = AnchorEntity(.plane(.horizontal, classification: .any, minimumBounds: SIMD2<Float>(0.2, 0.2)))
-        anchor.children.append(model)
-
-        // Add the horizontal plane anchor to the scene
-        arView.scene.anchors.append(anchor)
+        // Config inicial para o Coordinator
+        
+        context.coordinator.arView = arView
+        arView.session.delegate = context.coordinator
+        context.coordinator.setupUI()
 
         return arView
         
     }
     
     func updateUIView(_ uiView: ARView, context: Context) {}
+    
+    func makeCoordinator() -> Coordinator {
+        Coordinator()
+    }
     
 }
 

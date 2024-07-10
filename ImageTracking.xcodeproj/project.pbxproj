@@ -11,6 +11,8 @@
 		0A99EBC52C3E508C00498628 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A99EBC42C3E508C00498628 /* ContentView.swift */; };
 		0A99EBC72C3E508E00498628 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0A99EBC62C3E508E00498628 /* Assets.xcassets */; };
 		0A99EBCA2C3E508E00498628 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0A99EBC92C3E508E00498628 /* Preview Assets.xcassets */; };
+		0A99EBD12C3E53D300498628 /* toy_drummer_idle.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 0A99EBD02C3E53D300498628 /* toy_drummer_idle.usdz */; };
+		0A99EBD32C3E623600498628 /* horaVideo.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 0A99EBD22C3E623600498628 /* horaVideo.mp4 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +21,8 @@
 		0A99EBC42C3E508C00498628 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		0A99EBC62C3E508E00498628 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0A99EBC92C3E508E00498628 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		0A99EBD02C3E53D300498628 /* toy_drummer_idle.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = toy_drummer_idle.usdz; sourceTree = "<group>"; };
+		0A99EBD22C3E623600498628 /* horaVideo.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = horaVideo.mp4; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,6 +57,8 @@
 			children = (
 				0A99EBC22C3E508C00498628 /* AppDelegate.swift */,
 				0A99EBC42C3E508C00498628 /* ContentView.swift */,
+				0A99EBD22C3E623600498628 /* horaVideo.mp4 */,
+				0A99EBD02C3E53D300498628 /* toy_drummer_idle.usdz */,
 				0A99EBC62C3E508E00498628 /* Assets.xcassets */,
 				0A99EBC82C3E508E00498628 /* Preview Content */,
 			);
@@ -126,7 +132,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				0A99EBCA2C3E508E00498628 /* Preview Assets.xcassets in Resources */,
+				0A99EBD32C3E623600498628 /* horaVideo.mp4 in Resources */,
 				0A99EBC72C3E508E00498628 /* Assets.xcassets in Resources */,
+				0A99EBD12C3E53D300498628 /* toy_drummer_idle.usdz in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
